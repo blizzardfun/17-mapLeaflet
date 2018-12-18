@@ -61,6 +61,11 @@ function createMap(earthquakes) {
     zoom: 2,
     layers: [lightmap, earthquakes]
   });
+//*************************add plate lines to map */
+  var link = "static/plateData/PB2002_plates.json"
+  d3.json(link, function(error,data) {
+    L.geoJson(data).addTo(myMap) })
+//****************************** */
 
   // create a legend ***********
 var legend = L.control({position: 'bottomright'});
